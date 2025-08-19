@@ -1,0 +1,315 @@
+/* src/App.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0b5394;
+    margin-bottom: 30px;
+}
+
+.card {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e6f2ff;
+    border-left: 6px solid #0b5394;
+    border-radius: 12px;
+}
+
+    .card h2 {
+        color: #0b5394;
+        margin-bottom: 15px;
+    }
+
+    .card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .card li {
+        background-color: white;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #cfe2f3;
+    }
+.card {
+    overflow-x: auto;
+}
+.summary {
+    display: flex;
+    gap: 16px;
+    margin: 10px 0 20px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+}
+
+    .summary span {
+        background-color: #f0f7ff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #d0e6ff;
+        white-space: nowrap;
+    }
+.download-btn {
+    background-color: #0074d9;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .download-btn:hover {
+        background-color: #005fa3;
+    }
+
+.warnings {
+    margin-bottom: 20px;
+}
+
+.warning-box {
+    background-color: #ffe6e6;
+    color: #a94442;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.start-btn {
+    background-color: #0074d9;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+    .start-btn:hover {
+        background-color: #005fa3;
+    }
+
+/* Ana Sayfa Stilleri */
+.home-wrapper {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f0ff, #f9fbff);
+}
+
+.home-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    max-width: 600px;
+    width: 90%;
+}
+
+    .home-card h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #004080;
+    }
+
+.subtext {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.start-btn {
+    background-color: #0074d9;
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+    .start-btn:hover {
+        background-color: #005fa3;
+    }
+
+.highlight {
+    color: #0074d9;
+}
+
+/* Animasyon */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.back-btn {
+    background-color: transparent;
+    color: #0074d9;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+    .back-btn:hover {
+        color: #004080;
+        text-decoration: underline;
+    }
+.loading-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f6f9ff;
+    color: #0074d9;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.spinner {
+    border: 5px solid #e3f2fd;
+    border-top: 5px solid #0074d9;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Koyu mod için genel arka plan ve yazı rengi */
+.dark {
+    background-color: #181818;
+    color: #e6e6e6;
+}
+
+    /* Başlıklar */
+    .dark h1, .dark h2 {
+        color: #79b8f3;
+    }
+
+    /* Kartlar */
+    .dark .card {
+        background-color: #242424;
+        border: 1px solid #333;
+    }
+
+    /* Özet Bilgiler */
+    .dark .summary span {
+        background-color: #2e2e2e;
+        border: 1px solid #444;
+        padding: 6px 10px;
+        margin: 2px;
+        border-radius: 6px;
+    }
+
+    /* Butonlar */
+    .dark .download-btn,
+    .dark .toggle-btn,
+    .dark .back-btn {
+        background-color: #3a3a3a;
+        color: #f0f0f0;
+        border: 1px solid #555;
+    }
+
+        .dark .download-btn:hover,
+        .dark .toggle-btn:hover {
+            background-color: #555;
+            transition: background-color 0.2s ease;
+        }
+
+    /* Uyarı kutusu */
+    .dark .warning-box {
+        background-color: #4a1a1a;
+        border: 1px solid #c77;
+        color: #fdd;
+    }
+
+/* Grafik çizgileri */
+.recharts-cartesian-axis-tick line {
+    stroke: #777;
+}
+
+.recharts-cartesian-grid line {
+    stroke: #2f2f2f;
+}
+body, .container, .card, .summary span, button {
+    transition: all 0.3s ease;
+}
+.home-card button {
+    margin: 8px 0;
+}
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+.full-width-btn {
+    grid-column: span 2;
+    width: 100%;
+    max-width: 300px;
+}
+
+.start-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s ease;
+    width: 100%;
+    max-width: 240px;
+}
+
+    .start-btn:hover {
+        background-color: #0056b3;
+    }
+
