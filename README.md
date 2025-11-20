@@ -31,3 +31,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).  
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+##  Flask için 
+powershell aç: 
+cd C:\Users\MONSTER-PC\sensor_web_panel\sensor_dashboard\ai
+
+## sana ortam aç : 
+.\.venv\Scripts\Activate.ps1
+python api.py
+
+## Frontend (React) – terminal #2
+cd C:\Users\MONSTER-PC\sensor_web_panel\sensor_dashboard
+npm start
