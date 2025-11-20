@@ -1,0 +1,169 @@
+﻿/* Tüm stilleri si- önekiyle izole ettik */
+.si {
+    background: #f6f8fa;
+    min-height: 100vh;
+    padding: 32px 16px;
+}
+
+.si-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Başlık & geri buton */
+.si-title {
+    margin: 8px 0 16px;
+    color: #0b5394;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.si-back {
+    background: transparent;
+    color: #0b5394;
+    border: none;
+    font-weight: 700;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+    .si-back:hover {
+        text-decoration: underline;
+    }
+
+/* Kart */
+.si-card {
+    background: #e6f2ff;
+    border-left: 8px solid #0b5394;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Alt başlık */
+.si-h2 {
+    color: #0b5394;
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+}
+
+/* Metin */
+.si-p {
+    margin: 0 0 10px;
+    color: #1f2937;
+}
+
+/* Üstteki küçük rozetler */
+.si-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.si-chip {
+    background: #f0f7ff;
+    border: 1px solid #d0e6ff;
+    border-radius: 10px;
+    padding: 6px 10px;
+    white-space: nowrap;
+}
+
+/* Durum pill */
+.si-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0f7ff;
+    border: 1px solid #d0e6ff;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #0f172a;
+}
+
+    .si-pill.si-ok {
+        background: rgba(16,185,129,.15);
+        border-color: rgba(16,185,129,.45);
+        color: #065f46;
+    }
+
+    .si-pill.si-bad {
+        background: rgba(239,68,68,.12);
+        border-color: rgba(239,68,68,.4);
+        color: #7f1d1d;
+    }
+
+    .si-pill.si-info {
+        background: rgba(59,130,246,.12);
+        border-color: rgba(59,130,246,.35);
+        color: #1e3a8a;
+    }
+
+    .si-pill.si-btn {
+        cursor: pointer;
+    }
+
+        .si-pill.si-btn:hover {
+            filter: brightness(.95);
+        }
+
+/* KPI’lar */
+.si-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.si-kpi {
+    background: #fff;
+    border: 1px solid #d0e6ff;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.si-kpi-title {
+    font-size: .9rem;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.si-kpi-value {
+    font-weight: 800;
+    color: #0b5394;
+    word-break: break-all;
+}
+
+/* Listeleri sadeleştir (App.css’in .card li stilini ez) */
+.si-list,
+.si-list ul {
+    list-style: disc;
+    margin: 6px 0 6px 20px;
+    padding: 0;
+}
+
+    .si-list li {
+        margin: 6px 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .si-list code {
+        background: #eef6ff;
+        border: 1px solid #d0e6ff;
+        border-radius: 6px;
+        padding: 0 4px;
+    }
+
+/* Mobil uyum */
+@media (max-width: 800px) {
+    .si-kpis {
+        grid-template-columns: 1fr;
+    }
+}

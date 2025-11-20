@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth"; // 🔸 Bunu ekledik
 
-// Firebase ayarların
 const firebaseConfig = {
 	apiKey: "AIzaSyCELa6_5_-UQcnpcD5C4p2rRosDlqIehNY",
 	authDomain: "tempdeneme2.firebaseapp.com",
@@ -13,11 +13,8 @@ const firebaseConfig = {
 	measurementId: "G-L66T6LXF6J"
 };
 
-// Uygulamayı başlat
 const app = initializeApp(firebaseConfig);
-
-// Veritabanı bağlantısı
 const db = getDatabase(app);
+export const auth = getAuth(app); // 🔸 Bunu ekledik
 
-// db'yi dışa aktarıyoruz
 export { db };

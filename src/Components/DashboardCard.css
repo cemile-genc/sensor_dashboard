@@ -1,0 +1,49 @@
+﻿
+
+.admindashboard-cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 220px;
+    height: 130px; /* Gerekirse biraz yükseltebiliriz */
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    overflow: hidden; /* ✨ Scroll barı engeller */
+}
+
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card .icon {
+        margin-bottom: 6px;
+    }
+
+    .card.blue {
+        background-color: #3b82f6;
+    }
+
+    .card.green {
+        background-color: #10b981;
+    }
+
+    .card.orange {
+        background-color: #f59e0b;
+    }
+
+    .card.purple {
+        background-color: #8b5cf6;
+    }

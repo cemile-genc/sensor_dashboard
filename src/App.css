@@ -1,4 +1,20 @@
-/* src/App.css */
+/* src/App.css — BÜYÜTÜLMÜŞ TİPOGRAFİ + ARALIKLAR */
+:root {
+    --base-font-size: 18px; /* 16 → 18 */
+    --h1-size: 2.2rem; /* başlık */
+    --h2-size: 1.4rem;
+    --text-color: #0b5394;
+    --card-bg: #e6f2ff;
+    --badge-bg: #f0f7ff;
+    --badge-bd: #d0e6ff;
+    --btn-bg: #0074d9;
+    --btn-bg-hover: #005fa3;
+}
+
+html, body {
+    font-size: var(--base-font-size);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f6f8fa;
@@ -7,31 +23,64 @@ body {
 }
 
 .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
+    max-width: 1200px; /* 1000 → 1200 */
+    margin: 48px auto; /* 40 → 48 */
+    padding: 28px; /* 20 → 28 */
     background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 20px; /* 16 → 20 */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
 }
 
 h1 {
     text-align: center;
-    color: #0b5394;
-    margin-bottom: 30px;
+    color: var(--text-color);
+    margin-bottom: 28px;
+    font-size: var(--h1-size);
+    line-height: 1.2;
 }
 
 .card {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #e6f2ff;
-    border-left: 6px solid #0b5394;
-    border-radius: 12px;
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: var(--card-bg);
+    border-left: 8px solid var(--text-color);
+    border-radius: 14px;
+    overflow: hidden; /* artık taşma yok */
+}
+/* Kart içinde yatay scrollbar'ı öldürür */
+.card {
+    overflow: hidden; /* sende zaten var, kalsın */
+    min-width: 0; /* flex/layout taşmalarını önler */
 }
 
+    /* Recharts genişliği kartı asla taşmasın */
+    .card .recharts-responsive-container {
+        width: 100% !important;
+        height: 360px !important; /* zaten eklemiştik, kalsın */
+    }
+
+    .card .recharts-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Güvenlik için: iç elemanlar kutu modeline dahil olsun */
+    .card * {
+        box-sizing: border-box;
+    }
+
+/* Ana kapsayıcı seviyesinde de taşma kapansın */
+.container {
+    overflow-x: hidden;
+}
+
+
+
     .card h2 {
-        color: #0b5394;
-        margin-bottom: 15px;
+        color: var(--text-color);
+        margin-bottom: 16px;
+        font-size: var(--h2-size);
+        line-height: 1.3;
     }
 
     .card ul {
@@ -40,76 +89,112 @@ h1 {
     }
 
     .card li {
-        background-color: white;
-        margin-bottom: 10px;
-        padding: 10px 15px;
-        border-radius: 8px;
+        background-color: #fff;
+        margin-bottom: 12px; /* 10 → 12 */
+        padding: 12px 16px; /* 10 15 → 12 16 */
+        border-radius: 10px; /* 8 → 10 */
         border: 1px solid #cfe2f3;
     }
-.card {
-    overflow-x: auto;
-}
+
+/* Özet satırı (badge’ler) */
+/* Özet rozetleri (Last/Date/Avg/Max/Min) */
 .summary {
     display: flex;
-    gap: 16px;
-    margin: 10px 0 20px;
+    gap: 12px;
     flex-wrap: wrap;
-    font-size: 0.95rem;
+    margin: 12px 0 16px;
+    font-size: 1.05rem;
     color: #333;
     font-weight: 500;
 }
 
-    .summary span {
-        background-color: #f0f7ff;
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #d0e6ff;
+    .summary .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: var(--badge-bg);
+        border: 1px solid var(--badge-bd);
+        padding: 8px 12px;
+        border-radius: 10px;
         white-space: nowrap;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
     }
-.download-btn {
-    background-color: #0074d9;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+
+/* Grafik yüksekliği ve yatay taşmaları önleme */
+.container {
+    overflow-x: hidden;
 }
 
-    .download-btn:hover {
-        background-color: #005fa3;
+.card {
+    overflow: hidden;
+    min-width: 0;
+}
+
+    .card .recharts-responsive-container {
+        width: 100% !important;
+        height: 360px !important;
     }
 
+    .card .recharts-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+/* Butonlar */
+.download-btn, .toggle-btn, .back-btn {
+    background-color: var(--btn-bg);
+    color: #fff;
+    border: none;
+    padding: 10px 16px; /* 6 12 → 10 16 */
+    border-radius: 8px; /* 6 → 8 */
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem; /* sabit tutuldu, büyüdü çünkü root 18px */
+    line-height: 1;
+}
+
+.download-btn {
+    margin-bottom: 12px;
+}
+
+.back-btn {
+    background-color: transparent;
+    color: var(--btn-bg);
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    transition: color 0.2s;
+}
+
+    .back-btn:hover {
+        color: #004080;
+        text-decoration: underline;
+    }
+
+.download-btn:hover, .toggle-btn:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+/* Uyarılar */
 .warnings {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .warning-box {
     background-color: #ffe6e6;
     color: #a94442;
     border: 1px solid #f5c6cb;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-.start-btn {
-    background-color: #0074d9;
-    color: white;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
+    padding: 12px; /* 10 → 12 */
+    border-radius: 10px; /* 8 → 10 */
+    margin-bottom: 12px; /* 10 → 12 */
+    font-weight: 800;
+    font-size: 1rem; /* büyüt */
 }
 
-    .start-btn:hover {
-        background-color: #005fa3;
-    }
-
-/* Ana Sayfa Stilleri */
+/* Ana Sayfa */
 .home-wrapper {
     display: flex;
     height: 100vh;
@@ -119,49 +204,81 @@ h1 {
 }
 
 .home-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 16px;
+    background-color: #fff;
+    padding: 44px; /* 40 → 44 */
+    border-radius: 18px; /* 16 → 18 */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     animation: fadeIn 0.8s ease-in-out;
-    max-width: 600px;
-    width: 90%;
+    max-width: 680px; /* 600 → 680 */
+    width: 92%;
 }
 
     .home-card h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 2.6rem; /* 2.5 → 2.6 */
+        margin-bottom: 12px;
         color: #004080;
     }
 
 .subtext {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .start-btn {
-    background-color: #0074d9;
+    background-color: #007bff;
     color: white;
-    padding: 14px 28px;
-    font-size: 1.1rem;
+    padding: 14px 24px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    font-weight: 800;
+    font-size: 1.05rem;
+    transition: 0.3s ease;
 }
 
     .start-btn:hover {
-        background-color: #005fa3;
+        background-color: #0056b3;
     }
 
 .highlight {
     color: #0074d9;
 }
 
-/* Animasyon */
+/* Login */
+.login-container {
+    width: 340px; /* 300 → 340 */
+    margin: 110px auto;
+    padding: 24px; /* 20 → 24 */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* 8 → 10 */
+    background: #f9f9f9;
+}
+
+/* Loading */
+.loading-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f6f9ff;
+    color: #0074d9;
+    font-size: 1.25rem; /* 1.2 → 1.25 */
+    font-weight: bold;
+}
+
+.spinner {
+    border: 5px solid #e3f2fd;
+    border-top: 5px solid #0074d9;
+    border-radius: 50%;
+    width: 70px; /* 60 → 70 */
+    height: 70px; /* 60 → 70 */
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -173,118 +290,79 @@ h1 {
         transform: translateY(0);
     }
 }
-.back-btn {
-    background-color: transparent;
-    color: #0074d9;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    transition: color 0.2s;
-}
-
-    .back-btn:hover {
-        color: #004080;
-        text-decoration: underline;
-    }
-.loading-screen {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #f6f9ff;
-    color: #0074d9;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.spinner {
-    border: 5px solid #e3f2fd;
-    border-top: 5px solid #0074d9;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-}
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
+    to {
         transform: rotate(360deg);
     }
 }
-/* Koyu mod için genel arka plan ve yazı rengi */
+
+/* Dark mode */
 .dark {
     background-color: #181818;
     color: #e6e6e6;
 }
 
-    /* Başlıklar */
     .dark h1, .dark h2 {
         color: #79b8f3;
     }
 
-    /* Kartlar */
     .dark .card {
         background-color: #242424;
         border: 1px solid #333;
     }
 
-    /* Özet Bilgiler */
-    .dark .summary span {
+    .dark .summary .chip {
         background-color: #2e2e2e;
         border: 1px solid #444;
-        padding: 6px 10px;
-        margin: 2px;
-        border-radius: 6px;
     }
 
-    /* Butonlar */
-    .dark .download-btn,
-    .dark .toggle-btn,
-    .dark .back-btn {
+
+    .dark .download-btn, .dark .toggle-btn, .dark .back-btn {
         background-color: #3a3a3a;
         color: #f0f0f0;
         border: 1px solid #555;
     }
 
-        .dark .download-btn:hover,
-        .dark .toggle-btn:hover {
+        .dark .download-btn:hover, .dark .toggle-btn:hover {
             background-color: #555;
             transition: background-color 0.2s ease;
         }
 
-    /* Uyarı kutusu */
     .dark .warning-box {
         background-color: #4a1a1a;
         border: 1px solid #c77;
         color: #fdd;
     }
 
-/* Grafik çizgileri */
-.recharts-cartesian-axis-tick line {
-    stroke: #777;
+/* Recharts yazıları (Eksen/Tooltip) büyüt */
+.recharts-text {
+    font-size: 13px;
+}
+/* eksen değerleri */
+.recharts-tooltip-wrapper {
+    font-size: 14px;
+}
+/* tooltip */
+
+/* Grafik  yüksekliği — ResponsiveContainer inline yüksekliğini ezmek için */
+.card .recharts-responsive-container {
+    height: 360px !important; /* 300 → 360 */
 }
 
-.recharts-cartesian-grid line {
-    stroke: #2f2f2f;
-}
+/* Grid & buton yardımcıları */
 body, .container, .card, .summary span, button {
     transition: all 0.3s ease;
 }
+
 .home-card button {
-    margin: 8px 0;
+    margin: 10px 0;
 }
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
     margin-top: 20px;
     justify-items: center;
 }
@@ -292,24 +370,144 @@ body, .container, .card, .summary span, button {
 .full-width-btn {
     grid-column: span 2;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
 }
 
-.start-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    transition: 0.3s ease;
-    width: 100%;
-    max-width: 240px;
+/* Home title küçük iyileştirme */
+.home-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-    .start-btn:hover {
-        background-color: #0056b3;
+/* Küçük ekranlarda tek sütun */
+@media (max-width: 520px) {
+    .button-grid {
+        grid-template-columns: 1fr;
     }
 
+    .full-width-btn {
+        grid-column: auto;
+        max-width: none;
+    }
+}
+
+/* Butonlara micro-interaction */
+.start-btn:active {
+    transform: translateY(1px);
+}
+
+/* Erişilebilir odak stili */
+.start-btn:focus-visible {
+    outline: 3px solid #79b8f3;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(121,184,243,.25);
+}
+/* --- Home sayfası butonları --- */
+
+.home-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 2 sütun düzen; her buton aynı genişlikte */
+.home-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 560px; /* kart ortasında dengeli görünüm */
+    margin: 0 auto;
+}
+
+/* Mobilde tek sütun */
+@media (max-width: 560px) {
+    .home-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .span-2 {
+        grid-column: auto;
+    }
+}
+
+/* Tüm butonlar aynı stil */
+.action-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border: 0;
+    border-radius: 14px;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(180deg, #0d6efd, #0b5ed7);
+    box-shadow: 0 10px 24px rgba(13,110,253,.25);
+    cursor: pointer;
+    transition: transform .05s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+    .action-btn:hover {
+        filter: brightness(.97);
+        box-shadow: 0 12px 28px rgba(13,110,253,.32);
+    }
+
+    .action-btn:active {
+        transform: translateY(1px);
+    }
+
+    .action-btn:focus-visible {
+        outline: 3px solid #79b8f3;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px rgba(121,184,243,.28);
+    }
+
+    .action-btn .ico {
+        font-size: 1.2rem;
+    }
+
+/* Üstteki ve alttaki butonları 2 sütun boyunca uzat */
+.span-2 {
+    grid-column: span 2;
+}
+
+/* Dark mode uyumu (varsa) */
+.dark .action-btn {
+    background: linear-gradient(180deg, #3a3a3a, #2f2f2f);
+    box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+    .dark .action-btn:hover {
+        filter: brightness(1.05);
+    }
+
+
+.info-card {
+    overflow: visible !important; 
+    width: 100%;
+}
+
+    
+    .info-card .chip {
+        white-space: normal; 
+        line-height: 1.25;
+    }
+
+    /* Info kart */
+    .info-card * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Özet satırı */
+    .info-card .summary {
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+
+.container .card {
+    width: 100%;
+}
